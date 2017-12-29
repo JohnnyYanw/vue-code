@@ -15,21 +15,16 @@
 			}
 		},
 		methods: {
+			// 点击获取验证码
 			run() {
 				if(!this.disabled) {
 					this.setDisabled(true);
-					this.start();
+					this.timer();
 				} else {
 					return false;
 				}
 			},
-			start() {
-				this.timer();
-			},
-			// 设置disable的值
-			setDisabled(val) {
-				this.disabled = val;
-			},
+			// 倒计时
 			timer() {
 				if(this.time > 0) {
 					this.tipText = this.time + 's后重新获取';
@@ -40,7 +35,11 @@
 					this.time = 60;
 					this.tipText = '重新获取';
 				}
-			}
+			},
+			// 设置disable的值
+			setDisabled(val) {
+				this.disabled = val;
+			},
 		}
 	}
 </script>
